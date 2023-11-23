@@ -32,7 +32,30 @@ else{
      
     
      }//fin 
-
+if ($resultado -> num_rows){ //si la consulta genera registros
+          echo '<div style="margin-left: 20px;">';
+          echo '<table class="table table-hover" style="width:50%;">';
+          
+            echo '<tr>';
+                echo '<th>id</th>';
+                echo '<th>nombre</th>';
+                echo '<th>cuenta</th>';
+                echo '<th>contrasena</th>';
+            echo '</tr>';
+            while( $fila = $resultado -> fetch_assoc()){ //recorremos los registros obtenidos de la tabla
+                echo '<tr>';
+                    echo '<td>'. $fila['id'] . '</td>';
+                    echo '<td>'. $fila['nombre'] . '</td>';
+                    echo '<td>'. $fila['cuenta'] . '</td>';
+                    echo '<td>'. $fila['contrasena'] . '</td>';
+                echo '</tr>';
+            }   
+            echo '</table">';
+         echo '</div>';
+     }
+     else{
+         echo "no hay datos";
+     }
     
    
 }
